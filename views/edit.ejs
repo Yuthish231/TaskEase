@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/show_styles.css">
+    <title>Task Details</title>
+</head>
+<body>
+    <div class="show-container">
+        <div class="show-card">
+            
+            <form action="/edit" method="post">
+                <input type="text" name="previousName" id="previousName" value="<%= filename %>" readonly><br><br> 
+                <input type="text" name="newName" id="newName" placeholder="New Name"><br><br>
+            
+                <button type="submit">Update Name</button>
+            </form><br><br><br>
+            <a href="/tasks" class="back-link">Go Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

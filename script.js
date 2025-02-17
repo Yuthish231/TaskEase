@@ -32,6 +32,11 @@ app.post('/tasks', (req, res) => {
     });
 });
 
+app.get('/edit/:filename',(req,res)=>{
+    res.render('edit',{filename:req.params.filename})
+})
+
+
 app.get('/tasks/:filename',(req,res)=>{
     fs.readFile(`./files/${req.params.filename}`,"utf-8",(err,filedata)=>{
         res.render('show',{filename:req.params.filename,filedata:filedata})
@@ -39,6 +44,10 @@ app.get('/tasks/:filename',(req,res)=>{
     
 })
 
+app.post('/edit',(req,res)=>{
+    fs.rename(`./files/${req.body.previousName}`,`./files/${req.body.newName}`,(err)=>{
+        res.redirect('/tasks')})
+    })
 
 
 app.listen(3000,()=>{
