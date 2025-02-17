@@ -44,10 +44,34 @@ app.get('/tasks/:filename',(req,res)=>{
     
 })
 
-app.post('/edit',(req,res)=>{
-    fs.rename(`./files/${req.body.previousName}`,`./files/${req.body.newName}`,(err)=>{
-        res.redirect('/tasks')})
-    })
+app.post('/edit', (req, res) => {
+    const action = req.body.action;  // This will be either 'update' or 'delete'
+    const previousName = req.body.previousName;
+    const newName = req.body.newName;
+
+    if (action === 'update') {
+        // Handle file renaming (update name)
+        fs.rename(`./files/${previousName}`, `./files/${newName}`, (err) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).send("Error renaming file");
+            }
+            res.redirect('/tasks');
+        });
+    } else if (action === 'delete') {
+        // Handle file deletion
+        fs.unlink(`./files/${previousName}`, (err) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).send("Error deleting file");
+            }
+            res.redirect('/tasks');
+        });
+    } else {
+        res.status(400).send("Invalid action");
+    }
+});
+
 
 
 app.listen(3000,()=>{

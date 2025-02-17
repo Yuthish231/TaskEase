@@ -12,9 +12,10 @@
             
             <form action="/edit" method="post">
                 <input type="text" name="previousName" id="previousName" value="<%= filename %>" readonly><br><br> 
-                <input type="text" name="newName" id="newName" placeholder="New Name"><br><br>
+                <input type="text" name="newName" id="newName" placeholder="New Name"><br><br> <!--We identify the value in the form via name.. and value so we use req.body.-->
             
                 <button type="submit">Update Name</button>
+                <button type="submit" name="action" value="delete">Delete File</button>
             </form><br><br><br>
             <a href="/tasks" class="back-link">Go Back to Home</a>
         </div>
