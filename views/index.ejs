@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/index_styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to Task Manager</h1>
+    <div class="forms">
+        <form action="/tasks" method="post">
+            <label for="title">Title</label><br>
+            <input type="text" name="title" id="title" placeholder="Enter the text here"><br><br>  <!-- Use name attribute compulasarily when fetching data from form, etc-->
+        
+            <label for="description">Description</label><br>
+            <input type="text" name="description" id="description" placeholder="Enter the text here"><br><br>
+        
+            <button type="submit">Create Task</button>
+        </form>
+    </div>
+    <div class="cards"> 
+        <% if (files.length>0){ %>
+           <% files.forEach((val)=>{ %>
+            <div class="tasks">
+                <h3><%=val %></h3>
+                <a href="/tasks/<%= val %>">Read More</a>
+            </div>
+           <%  }) %>
+        <% } else{ %>
+            <h3> No Tasks Yet</h3>
+        <% } %> <!-- notice we haven't used = (we use = only when the perform calculations... No = means while looping, conditions,any logic stuff, etc)-->
+        </div>
+    </div>
+</body>
+</html>

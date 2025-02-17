@@ -1,0 +1,53 @@
+/* Show Page Styling */
+.show-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.show-card {
+    background: white;
+    max-width: 600px;
+    width: 90%;
+    padding: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.show-card:hover {
+    transform: scale(1.02);
+}
+
+.show-card h1 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.show-card p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    white-space: pre-wrap; /* Keeps text formatting */
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    background: #e74c3c;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    background: #c0392b;
+}
